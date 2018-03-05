@@ -1,7 +1,7 @@
 # Serving-multiple-tensorflow-models
 Serve multiple tensorflow models with python using flask + gevent + gunicorn.
 
-In this demo, I deployed InceptionResnetV2 model and the [goole object detection model API](https://github.com/tensorflow/models/tree/master/research/object_detection).
+In this demo, I deployed InceptionResnetV2 model and the [google object detection model API](https://github.com/tensorflow/models/tree/master/research/object_detection).
 
 **Is easy to deploy multiple models in this way. Also, [tensorflow serving](https://www.tensorflow.org/serving/) maybe a good choose for long-term use.**
 
