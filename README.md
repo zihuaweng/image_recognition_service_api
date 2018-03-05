@@ -27,3 +27,6 @@ in terminal:
 - second model:
 
   curl http://your ip:8888/recognition/multi?imageUrl=url----image3.jpg
+
+## TODO
+- remove the warm-up part (If anyone come up a good idea to speed up the first testing plase contact me :) )
