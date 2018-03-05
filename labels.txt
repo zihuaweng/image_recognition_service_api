@@ -1,0 +1,6 @@
+# This is an example of label_file in image_recogniton_single:
+
+apple
+banana
+rice
+egg
