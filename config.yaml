@@ -1,0 +1,18 @@
+warm_up:
+    times: how_many_times_to_warm_up_eg_2(int)
+    image: https://a_testing_image_url.jpg
+image_recogniton_single: 
+    model_name: image_recogniton_single
+    model_pb_file: /path/to/image_recogniton_single/model.pb
+    label_file: /path/to/image_recogniton_single/labels.txt
+    input_tensor: tensor_name_of_input_placeholder_eg_Placeholder_only:0(string)
+    output_tensor: tensor_name_of_ouptut_eg_InceptionResnetV2/Logits/Predictions:0(string)
+    gpu_num: 0
+    log_file: /path/to/logging/image_recogniton_single.log
+image_recogniton_multi: 
+    model_name: image_recogniton_multi
+    model_pb_file: /path/to/image_recogniton_multi/frozen_inference_graph.pb
+    label_file: /path/to/image_recogniton_multi/label_map.json
+    gpu_num: 0
+    detection_num: /how/many/boxes/to/check
+    log_file: /path/to/logging/image_recogniton_multi.log
