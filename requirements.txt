@@ -1,0 +1,10 @@
+# REQUIREMENT
+# -----------
+flask
+flask_restful
+gunicorn
+gevent
+yaml
+skimage
+urllib
+numpy
