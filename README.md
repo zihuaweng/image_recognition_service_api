@@ -17,7 +17,7 @@ In this demo, I deployed InceptionResnetV2 model and the [google object detectio
 - specify how to run the your session in image_recognition_all.py.
 
 ### Run the server:
-gunicorn -c gunicorn_all.config image_recognition_all.py:app -D
+gunicorn -c gunicorn_all.config image_recognition_all.py:app
 
 ### Test it:
 in terminal:
