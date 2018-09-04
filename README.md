@@ -1,7 +1,7 @@
 # Api for image recognition serving.
-## Easy way to deploy multiple models with deep learning frameworks for your products.
+Easy way to deploy multiple models with deep learning frameworks for your products.
 
-## 深度学习模型多模型线上部署API. 可根据需要快速部署tensorflow, Keras模型. 有更高级的需求可以使用[tensorflow serving](https://www.tensorflow.org/serving/)
+深度学习模型多模型线上部署API. 可根据需要快速部署tensorflow, Keras模型(flask + gevent + gunicorn). 有更高级的需求可以使用[tensorflow serving](https://www.tensorflow.org/serving/)
 
 ## My test environment:
 - Ubuntu 16.04
@@ -33,9 +33,9 @@ Contains all config files.
 
 ## Outputs
 
-### ImageModelSingle()
+ImageModelSingle()
 
-#### model_type=SingleTf
+model_type=SingleTf
 
     **result = model.predict(image, top)**
 
@@ -56,15 +56,16 @@ In this demo, I deployed a serving model with python using flask + gevent + guni
 **Is easy to deploy multiple models in this way. But [tensorflow serving](https://www.tensorflow.org/serving/) maybe a good choose for long-term use.**
 
 ### How to use it:
+- add your prediction scripts in sub_model.py and install the api.
 - change config.yaml according to your models
 - add config information in gunicorn.config. For detail information pleae view [gunicorn setting document](http://docs.gunicorn.org/en/latest/settings.html)
-- add your prediction scripts in sub_model.py and install the api.
+
 
 ### Run the server:
-sh ./example_run.sh
+    sh ./example_run.sh
 
 ### Test it:
-python example/service_test.py
+    python example/service_test.py
 
 ## TODO
-- remove the warm-up part (If anyone comes up a good idea to speed up the first testing plase contact me :) )
+- remove the warm-up part (If anyone comes up a good idea to speed up the first test, feel free to contact me :) )
