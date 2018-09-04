@@ -1,34 +1,70 @@
-# Serving-multiple-tensorflow-models
-## tensorflow线上多模型部署（包括图像识别，物体检测）
+# Api for image recognition serving.
+## Easy way to deploy multiple models with deep learning frameworks for your products.
 
-Serve multiple tensorflow models with python using flask + gevent + gunicorn.
+## 深度学习模型多模型线上部署API. 可根据需要快速部署tensorflow, Keras模型. 有更高级的需求可以使用[tensorflow serving](https://www.tensorflow.org/serving/)
 
-In this demo, I deployed InceptionResnetV2 model and the [google object detection model API](https://github.com/tensorflow/models/tree/master/research/object_detection).
+## My test environment:
+- Ubuntu 16.04
+- python3
+
+
+## Installation
+
+    python setup.py build
+    python setup.py install
+
+## Usage
+
+    from img_recog_api.model_creator import ImageModelSingle
+
+    config = 'path/to/config'
+
+    # image recognition
+    # create and load models
+    Model_s = ImageModelSingle(config)
+    # load image to api support format
+    image = your_load_image_func(image)
+    # predict image
+    results_s = Model_s.predict(image, top=4)
+
+## config
+Contains all config files.
+1. config.yaml
+
+## Outputs
+
+### ImageModelSingle()
+
+#### model_type=SingleTf
+
+    **result = model.predict(image, top)**
+
+    {
+      "recognitionList": [
+        {
+          "className": "label1",
+          "confidence": 0.2440231442451477
+        }
+      ]
+    }
+
+## Deploy your models
+
+
+In this demo, I deployed a serving model with python using flask + gevent + gunicorn.
 
 **Is easy to deploy multiple models in this way. But [tensorflow serving](https://www.tensorflow.org/serving/) maybe a good choose for long-term use.**
 
-## Requirement:
-- Ubuntu 16.04
-- python3
-- pip install -r requirements.txt
-
-## How to use it:
+### How to use it:
 - change config.yaml according to your models
-- add config information in gunicorn_all.config. For detail information pleae view [gunicorn setting document](http://docs.gunicorn.org/en/latest/settings.html)
-- change the Load_img_single_model(InceptionResnetV2) and Load_img_multi_model(goole object detection) classes in model_manager.py according to your models.
-- specify how to run the your session in image_recognition_all.py.
+- add config information in gunicorn.config. For detail information pleae view [gunicorn setting document](http://docs.gunicorn.org/en/latest/settings.html)
+- add your prediction scripts in sub_model.py and install the api.
 
 ### Run the server:
-gunicorn -c gunicorn_all.config image_recognition_all.py:app
+sh ./example_run.sh
 
 ### Test it:
-in terminal:
-- first model:
-
-  curl http://your ip:8888/recognition/single?imageUrl=url----image3.jpg
-- second model:
-
-  curl http://your ip:8888/recognition/multi?imageUrl=url----image3.jpg
+python example/service_test.py
 
 ## TODO
 - remove the warm-up part (If anyone comes up a good idea to speed up the first testing plase contact me :) )

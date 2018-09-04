@@ -1,0 +1,5 @@
+model_type: SingleTf
+model_file: /path/to/model.pb
+label_file: /path/to/labels.txt
+# gpu_num could be set as any int. for cpu using gpu_num: ""
+gpu_num: 0
