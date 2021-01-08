@@ -5,7 +5,7 @@ requirements = [
     'numpy',
     'opencv-python',
     'scikit-image',
-   'tensorflow-gpu==1.4'
+   'tensorflow-gpu==2.4.0'
 ]
 
 setup(
