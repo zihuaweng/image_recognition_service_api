@@ -1,4 +1,4 @@
-# Api for image recognition serving
+# Api for Image Recognition Service
 Easy way to deploy multiple models with deep learning frameworks for your products.
 
 深度学习模型多模型线上部署API. 可根据需要快速部署tensorflow, Keras模型(flask + gevent + gunicorn). 有更高级的需求可以使用[tensorflow serving](https://www.tensorflow.org/serving/)
